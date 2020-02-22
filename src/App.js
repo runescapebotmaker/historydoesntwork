@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { BrowserRouter as Router, useHistory } from "react-router-dom";
 
 function HomeButton() {
   /* sample code https://reacttraining.com/react-router/web/api/Hooks/usehistory */
@@ -7,18 +7,28 @@ function HomeButton() {
 
   function handleClick() {
     /* history.push("/home"); */
-    history.replace("/home");
+    history.replace("/homebuton");
     console.log("[handleClick()]");
   }
 
   return (
     <>
-      {React.version}
       <button type="button" onClick={handleClick}>
-        Go home {React.version}
+        Go to 'homebutton'
       </button>
     </>
   );
 }
 
-export default HomeButton;
+const App = () => {
+  return (
+    <>
+      <p style={{ color: "#D00" }}>{React.version}</p>
+      <Router>
+        <HomeButton></HomeButton>
+      </Router>
+    </>
+  );
+};
+
+export default App;
