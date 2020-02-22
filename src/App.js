@@ -6,8 +6,8 @@ function HomeButton() {
   let history = useHistory();
 
   function handleClick() {
-    /* history.push("/home"); */
-    history.replace("/homebuton");
+    /* history.push("/homebutton"); */
+    history.replace("/homebutton");
     console.log("[handleClick()]");
   }
 
