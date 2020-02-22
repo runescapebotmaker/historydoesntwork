@@ -1,24 +1,35 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
-function HomeButton() {
-  /* sample code https://reacttraining.com/react-router/web/api/Hooks/usehistory */
-  let history = useHistory();
-
-  function handleClick() {
-    /* history.push("/home"); */
-    history.replace("/home");
+function SubmitForm() {
+  function handleClick(e) {
+    e.preventDefault();
     console.log("[handleClick()]");
   }
 
   return (
     <>
-      {React.version}
-      <button type="button" onClick={handleClick}>
-        Go home {React.version}
-      </button>
+      <form onSubmit={handleClick}>
+        <div>
+          <label>email</label>
+        </div>
+        <div>
+          <input placeholder="email"></input>
+        </div>
+        <div>
+          <label>password</label>
+        </div>
+        <div>
+          <input placeholder="password"></input>
+        </div>
+        <button>OldSchool Submit Button</button>
+        {/* type submit fixes the exact error */}
+        <Button variant="contained" color="primary" type="submit">
+          Material UI Button
+        </Button>
+      </form>
     </>
   );
 }
 
-export default HomeButton;
+export default SubmitForm;
